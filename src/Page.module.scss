@@ -1,0 +1,54 @@
+.wrapper {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: 1fr minmax(0, 1400px) 1fr;
+  grid-template-areas:
+    'header header header'
+    '. main .'
+    'footer footer footer';
+  grid-gap: 3rem 1.5rem;
+}
+
+.header {
+  grid-area: header;
+  padding: 1.5rem 2rem;
+}
+
+.main {
+  grid-area: main;
+
+  & > * + * {
+    margin-top: 1.5rem;
+  }
+}
+
+.footer {
+  grid-area: footer;
+  padding: 1.5rem 2rem;
+  background-color: #ffe4ff;
+}
+
+.title {
+  font-family: 'Permanent Marker';
+  font-weight: 400;
+  font-size: 2.5rem;
+  line-height: 1.1;
+  margin-bottom: 1.5em;
+}
+
+.siteNav {
+  display: flex;
+  margin: -1em;
+  align-items: center;
+  border-bottom: 2px solid #ffa4ff;
+
+  & > * {
+    margin: 1em;
+  }
+}
+
+.homeLink {
+  margin-right: auto;
+  max-width: 150px;
+}

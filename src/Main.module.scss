@@ -1,0 +1,15 @@
+.wrapper {
+  grid-area: main;
+
+  & > * + * {
+    margin-top: 1.5rem;
+  }
+}
+
+.title {
+  font-family: 'Permanent Marker';
+  font-weight: 400;
+  font-size: 2.5rem;
+  line-height: 1.1;
+  margin-bottom: 1.5em;
+}

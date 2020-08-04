@@ -1,0 +1,10 @@
+.cart {
+  & > * + * {
+    margin-top: 1.5em;
+  }
+}
+
+.title {
+  font-family: 'Permanent Marker';
+  font-size: 2rem;
+}
