@@ -1,13 +1,17 @@
 import React from 'react';
-import { Link, Match, useMatch } from '@reach/router';
+import { Link, Match } from '@reach/router';
+import { Router } from '@reach/router';
 
+import Flavors from './Flavors.js';
+import Home from './Home.js';
+import Checkout from './Checkout.js';
 import CartModal from './CartModal';
 
 import * as styles from './Page.module.scss';
 
 // import SiteFooter from './SiteFooter.js';
 
-function Page({ title, children }) {
+function Page({ children }) {
   return (
     <div className={styles.wrapper}>
       <header className={styles.header}>
@@ -29,7 +33,13 @@ function Page({ title, children }) {
           </Match>
         </nav>
       </header>
-      <Content title={title}>{children}</Content>
+      <main id="main" className={styles.main}>
+        <Router>
+          <Home path="/" />
+          <Checkout path="checkout" />
+          <Flavors path="flavors" />
+        </Router>
+      </main>
       <footer className={styles.footer}>
         <p>© 2020 Ryan Boone.</p>
         <p>
@@ -41,26 +51,6 @@ function Page({ title, children }) {
       </footer>
       {/* <SiteFooter className={styles.footer} /> */}
     </div>
-  );
-}
-
-function Content({ title, children }) {
-  const isHome = useMatch('/');
-
-  React.useEffect(
-    function () {
-      document.title = `${title} | 6 Savory Scoops`;
-    },
-    [title]
-  );
-
-  return (
-    <main id="main" className={styles.main}>
-      <h1 className={styles.title}>
-        {isHome ? 'Where Ice Cream and Savory Meat' : title}
-      </h1>
-      {children}
-    </main>
   );
 }
 

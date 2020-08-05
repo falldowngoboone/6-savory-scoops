@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Page from './Page.js';
+import Title from './Title.js';
 import { useOrderContext } from './order.js';
 
 import * as appStyles from './App.module.scss';
@@ -9,21 +9,34 @@ import * as styles from './Flavors.module.scss';
 let id = 0;
 
 function Flavors() {
-  const { setOrderItems } = useOrderContext();
+  const { orderItems, setOrderItems } = useOrderContext();
+  const [message, setMessage] = React.useState('');
   return (
-    <Page title="Flavors">
+    <>
+      <Title>Flavors</Title>
+      <div className="visually-hidden" role="status">
+        {message}
+      </div>
       <ul className={styles.list}>
         {getFlavors().map((flavor) => (
           <Flavor
             key={flavor.id}
-            onAddToCart={() =>
-              setOrderItems((items) => [...items, { ...flavor, orderId: id++ }])
-            }
+            onAddToCart={() => {
+              setOrderItems((items) => [
+                ...items,
+                { ...flavor, orderId: id++ },
+              ]);
+              setMessage(
+                `Added. Total items in order: ${
+                  orderItems.length + 1
+                }. Press C to open cart.`
+              );
+            }}
             {...flavor}
           />
         ))}
       </ul>
-    </Page>
+    </>
   );
 }
 

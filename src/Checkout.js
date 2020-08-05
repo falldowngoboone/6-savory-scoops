@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, Redirect } from '@reach/router';
 
-import Page from './Page.js';
+import Title from './Title.js';
 import { formatCurrency, processPricing } from './utils.js';
 import { useOrderContext } from './order.js';
 
@@ -18,7 +18,8 @@ function Checkout() {
   }
 
   return (
-    <Page title="Checkout">
+    <>
+      <Title>Checkout</Title>
       {success ? (
         <>
           <p>Success!</p>
@@ -32,7 +33,7 @@ function Checkout() {
             const isValid = validateForm(form);
 
             if (!isValid) {
-              setMessage(<p>There are errors!</p>);
+              setMessage('There are errors!');
             } else {
               setSuccess(true);
               setOrderItems([]);
@@ -42,7 +43,7 @@ function Checkout() {
           }}
         >
           <p>All fields are required</p>
-          <output role="alert">{message}</output>
+          <output>{message}</output>
           <div>
             <label htmlFor="email">Email:</label>
             <input id="email" name="e" />
@@ -66,7 +67,7 @@ function Checkout() {
           </button>
         </form>
       )}
-    </Page>
+    </>
   );
 }
 

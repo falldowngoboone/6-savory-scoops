@@ -12,6 +12,22 @@ function CartModal() {
   const [showCart, setShowCart] = React.useState(false);
   const { orderItems } = useOrderContext();
 
+  React.useEffect(() => {
+    function handleKeydown(e) {
+      const { key } = e;
+
+      if ('c' === key) {
+        setShowCart((s) => !s);
+      }
+    }
+
+    window.addEventListener('keydown', handleKeydown);
+
+    return () => {
+      window.removeEventListener('keydown', handleKeydown);
+    };
+  }, []);
+
   return (
     <>
       <button
@@ -30,12 +46,10 @@ function CartModal() {
         className="drawer"
         aria-labelledby="cart-heading"
       >
-        <>
-          <button className="drawer__close" onClick={() => setShowCart(false)}>
-            <Close />
-          </button>
-          <Cart />
-        </>
+        <button className="drawer__close" onClick={() => setShowCart(false)}>
+          <Close />
+        </button>
+        <Cart />
       </Dialog>
     </>
   );

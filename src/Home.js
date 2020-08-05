@@ -1,9 +1,11 @@
 import React from 'react';
-import Page from './Page.js';
+
+import Title from './Title.js';
 
 function Home() {
   return (
-    <Page title="Home">
+    <>
+      <Title>Where Ice Cream and Savory Meat</Title>
       <p>
         Welcome to our humble website! We are 6 Savory Scoops, a unique
         experience in tasty, meaty ice cream.
@@ -28,7 +30,7 @@ function Home() {
         But we digress. Come explore our six tempting flavors! Actually, we'd
         avoid eating anything purchased here. Don't say we didn't warn you.
       </p>
-    </Page>
+    </>
   );
 }
 
