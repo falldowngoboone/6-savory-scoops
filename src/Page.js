@@ -9,7 +9,7 @@ import CartModal from './CartModal';
 
 import * as styles from './Page.module.scss';
 
-// import SiteFooter from './SiteFooter.js';
+import SiteFooter from './SiteFooter.js';
 
 function Page({ children }) {
   return (
@@ -27,20 +27,20 @@ function Page({ children }) {
               alt="Home"
             />
           </Link>
-          <Link to="/flavors">Flavors</Link>
+          <Link className={styles.siteNavLink} to="/flavors">
+            Flavors
+          </Link>
           <Match path="/checkout">
             {({ match }) => (match ? null : <CartModal />)}
           </Match>
         </nav>
       </header>
-      <main id="main" className={styles.main}>
-        <Router>
-          <Home path="/" />
-          <Checkout path="checkout" />
-          <Flavors path="flavors" />
-        </Router>
-      </main>
-      <footer className={styles.footer}>
+      <Router component={Main}>
+        <Home path="/" />
+        <Checkout path="checkout" />
+        <Flavors path="flavors" />
+      </Router>
+      {/* <footer className={styles.footer}>
         <p>© 2020 Ryan Boone.</p>
         <p>
           <a href="https://www.falldowngoboone.com">Click here</a> to check out
@@ -48,10 +48,14 @@ function Page({ children }) {
           <a href="https://twitter.com/therealboone">click here</a> to follow me
           on Twitter.
         </p>
-      </footer>
-      {/* <SiteFooter className={styles.footer} /> */}
+      </footer> */}
+      <SiteFooter className={styles.footer} />
     </div>
   );
 }
+
+const Main = React.forwardRef((props, ref) => (
+  <main id="main" className={styles.main} ref={ref} {...props} />
+));
 
 export default Page;

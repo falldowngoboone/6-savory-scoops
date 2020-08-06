@@ -1,3 +1,5 @@
+@use 'variables' as vars;
+
 .list {
   display: grid;
   gap: 2.5rem;
@@ -22,9 +24,10 @@
 }
 
 .itemName {
-  font-family: 'Permanent Marker';
+  font-family: vars.$font-display;
   font-size: 2rem;
   line-height: 1.1;
+  color: vars.$purple-dark;
 }
 
 .itemDesc {
@@ -34,6 +37,7 @@
 .itemPrice {
   font-size: 1.5em;
   font-weight: 700;
+  color: vars.$purple-dark;
 }
 
 .itemImage {

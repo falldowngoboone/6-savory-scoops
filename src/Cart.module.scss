@@ -1,3 +1,5 @@
+@use 'variables' as vars;
+
 .cart {
   & > * + * {
     margin-top: 1.5em;
@@ -5,6 +7,6 @@
 }
 
 .title {
-  font-family: 'Permanent Marker';
+  font-family: vars.$font-display;
   font-size: 2rem;
 }
