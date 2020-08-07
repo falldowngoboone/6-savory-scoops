@@ -12,11 +12,12 @@
 
 .header {
   grid-area: header;
-  padding: 1.5rem 2rem;
+  padding: 0.75rem 2rem;
   border-bottom: 2px solid vars.$pink-dark;
   position: sticky;
   top: 0;
   background-color: white;
+  z-index: 1;
 }
 
 .mainWrapper {
@@ -46,10 +47,11 @@
 
 .footer {
   grid-area: footer;
-  padding: 1.5rem 2rem 4rem;
+  padding: 1.5rem 2rem;
   background-color: vars.$pink-light;
   position: sticky;
   bottom: 0;
+  z-index: 1;
 }
 
 .siteNav {

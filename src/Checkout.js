@@ -47,7 +47,7 @@ function Checkout() {
           }}
         >
           <p>All fields are required</p>
-          <output>{message}</output>
+          <output class={styles.error}>{message}</output>
           <div className={styles.inputWrapper}>
             <label className={styles.label} htmlFor="email">
               Email:

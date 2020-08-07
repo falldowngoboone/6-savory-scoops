@@ -2,7 +2,7 @@
 
 .list {
   display: grid;
-  gap: 2.5rem;
+  gap: 5vw;
   list-style-type: none;
 
   @media screen and (min-width: 460px) {
@@ -13,6 +13,7 @@
 .item {
   display: flex;
   flex-direction: column;
+  position: relative;
 
   & > * + * {
     margin-top: 1.5em;
@@ -20,6 +21,16 @@
 
   @media screen and (min-width: 460px) {
     align-items: flex-start;
+  }
+
+  button::after {
+    content: '';
+    display: block;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
   }
 }
 
