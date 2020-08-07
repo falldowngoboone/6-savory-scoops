@@ -14,8 +14,11 @@ function Cart() {
   return (
     <div className={styles.cart}>
       <h2 className={styles.title} id="cart-heading">
-        Your Order ({orderItems.length || 'no'}{' '}
-        {orderItems.length !== 1 ? 'items' : 'item'})
+        Your Order{' '}
+        <span className={styles.tally}>
+          ({orderItems.length || 'no'}{' '}
+          {orderItems.length !== 1 ? 'items' : 'item'})
+        </span>
       </h2>
       {orderItems.length > 0 ? (
         <>
@@ -30,7 +33,7 @@ function Cart() {
           <Link className={appStyles.button} to="/checkout">
             Checkout
           </Link>
-          <h3>All the deliciousness</h3>
+          <h3 className={styles.subheading}>All the deliciousness</h3>
           {orderItems.length > 5 && (
             <p>Oh, my, you must have a death wish...</p>
           )}
@@ -53,10 +56,16 @@ function Cart() {
 
 function OrderItem({ image, name, price }) {
   return (
-    <li>
-      <p>{name}</p>
-      <p>${price}</p>
-      <img src={image} height="320" width="320" alt="" />
+    <li className={styles.item}>
+      <p className={styles.itemName}>{name}</p>
+      <p className={styles.itemPrice}>${price}</p>
+      <img
+        className={styles.itemImage}
+        src={image}
+        height="320"
+        width="320"
+        alt=""
+      />
     </li>
   );
 }

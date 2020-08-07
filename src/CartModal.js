@@ -1,5 +1,5 @@
 import React from 'react';
-import { Dialog } from '@reach/dialog';
+import { DialogContent, DialogOverlay } from '@reach/dialog';
 
 import Cart from './Cart';
 import { ReactComponent as Close } from './close.svg';
@@ -7,6 +7,7 @@ import { useOrderContext } from './order';
 
 import '@reach/dialog/styles.css';
 import * as appStyles from './App.module.scss';
+import * as styles from './CartModal.module.scss';
 
 function CartModal() {
   const [showCart, setShowCart] = React.useState(false);
@@ -38,19 +39,23 @@ function CartModal() {
       >
         {orderItems.length ? `Cart (${orderItems.length})` : 'Cart'}
       </button>
-      <Dialog
+      <DialogOverlay
         isOpen={showCart}
         onDismiss={() => {
           setShowCart(false);
         }}
-        className="drawer"
-        aria-labelledby="cart-heading"
+        className={styles.overlay}
       >
-        <button className="drawer__close" onClick={() => setShowCart(false)}>
-          <Close />
-        </button>
-        <Cart />
-      </Dialog>
+        <DialogContent
+          className={styles.wrapper}
+          aria-labelledby="cart-heading"
+        >
+          <button className={styles.close} onClick={() => setShowCart(false)}>
+            <Close />
+          </button>
+          <Cart />
+        </DialogContent>
+      </DialogOverlay>
     </>
   );
 }

@@ -9,4 +9,51 @@
 .title {
   font-family: vars.$font-display;
   font-size: 2rem;
+  line-height: 1.1;
+  color: vars.$purple-dark;
+  margin-bottom: 1em;
+}
+
+.subheading {
+  margin-top: 4em;
+}
+
+.tally {
+  white-space: nowrap;
+}
+
+.pricing {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.priceType {
+  font-weight: 700;
+}
+
+.price {
+  text-align: right;
+}
+
+.item {
+  display: grid;
+  grid-template-areas:
+    '. image'
+    'name image'
+    'price image'
+    '. image';
+  grid-template-columns: 7fr 3fr;
+}
+
+.itemName {
+  grid-area: name;
+}
+
+.itemPrice {
+  grid-area: price;
+  font-weight: 700;
+}
+
+.itemImage {
+  grid-area: image;
 }

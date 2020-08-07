@@ -1,0 +1,32 @@
+@use 'variables' as vars;
+
+.wrapper {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  max-width: 450px;
+  margin: 0;
+  overflow-y: auto;
+  padding-top: 7rem;
+}
+
+.overlay {
+  backdrop-filter: blur(10px);
+  background-image: linear-gradient(
+    rgba(vars.$pink-dark, 0.7),
+    rgba(vars.$purple-dark, 0.7)
+  );
+}
+
+.close {
+  -webkit-appearance: none;
+  appearance: none;
+  border: none;
+  background-color: transparent;
+  width: 2.5rem;
+  position: absolute;
+  right: 2rem;
+  top: 2rem;
+}
