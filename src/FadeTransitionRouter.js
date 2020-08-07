@@ -8,8 +8,8 @@ function FadeTransitionRouter(props) {
   return (
     <Location>
       {({ location }) => (
-        <TransitionGroup component={null}>
-          <CSSTransition key={location.key} classNames="fade" timeout={500}>
+        <TransitionGroup>
+          <CSSTransition key={location.key} classNames="fade" timeout={200}>
             <Router location={location} {...props} />
           </CSSTransition>
         </TransitionGroup>

@@ -4,28 +4,43 @@
   min-height: 100vh;
   display: grid;
   grid-template-rows: auto 1fr auto;
-  grid-template-columns: 1fr minmax(0, 1400px) 1fr;
   grid-template-areas:
-    'header header header'
-    '. main .'
-    'footer footer footer';
-  grid-gap: 3rem 1.5rem;
+    'header'
+    'main'
+    'footer';
 }
 
 .header {
   grid-area: header;
   padding: 1.5rem 2rem;
+  border-bottom: 2px solid vars.$pink-dark;
+  position: sticky;
+  top: 0;
+  background-color: white;
+}
+
+.mainWrapper {
+  grid-area: main;
+  overflow: auto;
+  padding: 0 2rem;
+  width: 100%;
 }
 
 .main {
-  grid-area: main;
-}
+  max-width: 1400px;
+  margin: 4rem auto;
 
-.mainInner {
-  height: 100%;
-  overflow-y: auto;
   & > * + * {
     margin-top: 1.5rem;
+  }
+
+  &::before {
+    display: block;
+    content: ' ';
+    margin-top: -285px;
+    height: 285px;
+    visibility: hidden;
+    pointer-events: none;
   }
 }
 
@@ -33,14 +48,14 @@
   grid-area: footer;
   padding: 1.5rem 2rem 4rem;
   background-color: vars.$pink-light;
-  margin-top: 4rem;
+  position: sticky;
+  bottom: 0;
 }
 
 .siteNav {
   display: flex;
   margin: -1em;
   align-items: center;
-  border-bottom: 2px solid vars.$pink-dark;
   font-family: vars.$font-display;
   font-size: 1.5rem;
 
@@ -61,10 +76,4 @@
 .homeLink {
   margin-right: auto;
   max-width: 150px;
-}
-
-.checkout {
-  max-width: 450px;
-  margin-left: auto;
-  margin-right: auto;
 }

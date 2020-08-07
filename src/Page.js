@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, Match, useLocation } from '@reach/router';
+import { Link, Match } from '@reach/router';
 
 import Flavors from './Flavors.js';
 import Home from './Home.js';
@@ -55,13 +55,11 @@ function Page() {
 }
 
 const Main = React.forwardRef(({ children, ...props }, ref) => {
-  const location = useLocation();
-  const classes = [location.pathname.substring(1), styles.main]
-    .filter(Boolean)
-    .join(' ');
   return (
-    <main id="main" className={classes} ref={ref} {...props}>
-      <div className={styles.mainInner}>{children}</div>
+    <main id="main" className={styles.mainWrapper} ref={ref} {...props}>
+      <div role="presentation" className={styles.main}>
+        {children}
+      </div>
     </main>
   );
 });

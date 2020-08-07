@@ -1,3 +1,8 @@
+.wrapper {
+  max-width: 450px;
+  margin: 0 auto;
+}
+
 .form {
   & > * + * {
     margin-top: 1em;
@@ -22,4 +27,7 @@
 
 .input {
   font: inherit;
+  line-height: 1;
+  width: 100%;
+  padding: 0.25em 0.25em;
 }

@@ -19,7 +19,7 @@ function Checkout() {
   }
 
   return (
-    <>
+    <div className={styles.wrapper}>
       <Title>Checkout</Title>
       {success ? (
         <>
@@ -33,7 +33,6 @@ function Checkout() {
             setMessage(null);
           }}
           onSubmit={(e) => {
-            // setMessage(null);
             const form = e.target;
             const isValid = validateForm(form);
 
@@ -87,7 +86,7 @@ function Checkout() {
           <Button>Pay {formatCurrency(total)}</Button>
         </form>
       )}
-    </>
+    </div>
   );
 }
 
