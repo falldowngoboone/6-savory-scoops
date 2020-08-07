@@ -1,0 +1,25 @@
+.form {
+  & > * + * {
+    margin-top: 1em;
+  }
+}
+
+.inputWrapper {
+  & > * + * {
+    margin-top: 0.5em;
+  }
+}
+
+.label {
+  display: block;
+  font-weight: 700;
+
+  & > span {
+    font-size: 0.9em;
+    font-weight: 400;
+  }
+}
+
+.input {
+  font: inherit;
+}

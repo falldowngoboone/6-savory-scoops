@@ -1,0 +1,26 @@
+@use 'variables' as vars;
+
+.button {
+  text-decoration: none;
+  display: inline-block;
+  padding: 1em;
+  border-radius: 3px;
+  border: none;
+  -webkit-appearance: none;
+  appearance: none;
+  font: inherit;
+  line-height: 1;
+  color: vars.$purple-dark;
+  background-color: vars.$pink-light;
+
+  &:hover,
+  &:focus {
+    color: white;
+    background-color: vars.$purple-light;
+  }
+
+  &:active {
+    color: white;
+    background-color: vars.$purple-dark;
+  }
+}

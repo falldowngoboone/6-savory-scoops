@@ -19,7 +19,11 @@
 
 .main {
   grid-area: main;
+}
 
+.mainInner {
+  height: 100%;
+  overflow-y: auto;
   & > * + * {
     margin-top: 1.5rem;
   }
@@ -57,4 +61,10 @@
 .homeLink {
   margin-right: auto;
   max-width: 150px;
+}
+
+.checkout {
+  max-width: 450px;
+  margin-left: auto;
+  margin-right: auto;
 }

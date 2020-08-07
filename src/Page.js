@@ -1,6 +1,5 @@
 import React from 'react';
-import { Link, Match } from '@reach/router';
-import { Router } from '@reach/router';
+import { Link, Match, useLocation } from '@reach/router';
 
 import Flavors from './Flavors.js';
 import Home from './Home.js';
@@ -10,8 +9,9 @@ import CartModal from './CartModal';
 import * as styles from './Page.module.scss';
 
 import SiteFooter from './SiteFooter.js';
+import FadeTransitionRouter from './FadeTransitionRouter.js';
 
-function Page({ children }) {
+function Page() {
   return (
     <div className={styles.wrapper}>
       <header className={styles.header}>
@@ -35,11 +35,11 @@ function Page({ children }) {
           </Match>
         </nav>
       </header>
-      <Router component={Main}>
+      <FadeTransitionRouter component={Main}>
         <Home path="/" />
         <Checkout path="checkout" />
         <Flavors path="flavors" />
-      </Router>
+      </FadeTransitionRouter>
       {/* <footer className={styles.footer}>
         <p>© 2020 Ryan Boone.</p>
         <p>
@@ -54,8 +54,16 @@ function Page({ children }) {
   );
 }
 
-const Main = React.forwardRef((props, ref) => (
-  <main id="main" className={styles.main} ref={ref} {...props} />
-));
+const Main = React.forwardRef(({ children, ...props }, ref) => {
+  const location = useLocation();
+  const classes = [location.pathname.substring(1), styles.main]
+    .filter(Boolean)
+    .join(' ');
+  return (
+    <main id="main" className={classes} ref={ref} {...props}>
+      <div className={styles.mainInner}>{children}</div>
+    </main>
+  );
+});
 
 export default Page;

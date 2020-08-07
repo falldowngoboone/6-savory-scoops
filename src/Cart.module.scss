@@ -43,6 +43,10 @@
     'price image'
     '. image';
   grid-template-columns: 7fr 3fr;
+
+  & + & {
+    border-top: 1px solid vars.$pink-dark;
+  }
 }
 
 .itemName {

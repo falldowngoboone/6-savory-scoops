@@ -1,11 +1,12 @@
 import React from 'react';
 import { Link, Redirect } from '@reach/router';
 
+import Button from './Button.js';
 import Title from './Title.js';
 import { formatCurrency, processPricing } from './utils.js';
 import { useOrderContext } from './order.js';
 
-import * as appStyles from './App.module.scss';
+import * as styles from './Checkout.module.scss';
 
 function Checkout() {
   const { orderItems, setOrderItems } = useOrderContext();
@@ -23,12 +24,16 @@ function Checkout() {
       {success ? (
         <>
           <p>Success!</p>
-          <Link to="/">Back</Link>
+          <Link to="/">Back to home</Link>
         </>
       ) : (
         <form
-          onSubmit={(e) => {
+          className={styles.form}
+          onChange={() => {
             setMessage(null);
+          }}
+          onSubmit={(e) => {
+            // setMessage(null);
             const form = e.target;
             const isValid = validateForm(form);
 
@@ -44,27 +49,42 @@ function Checkout() {
         >
           <p>All fields are required</p>
           <output>{message}</output>
-          <div>
-            <label htmlFor="email">Email:</label>
-            <input id="email" name="e" />
+          <div className={styles.inputWrapper}>
+            <label className={styles.label} htmlFor="email">
+              Email:
+            </label>
+            <input className={styles.input} id="email" name="e" />
           </div>
-          <div>
-            <label htmlFor="name">Name on card:</label>
-            <input autoComplete="off" id="name" name="fn" type="text" />
+          <div className={styles.inputWrapper}>
+            <label className={styles.label} htmlFor="name">
+              Name on card:
+            </label>
+            <input
+              className={styles.input}
+              autoComplete="off"
+              id="name"
+              name="fn"
+              type="text"
+            />
           </div>
-          <div>
-            <label htmlFor="cc-number">Card number:</label>
-            <input id="cc-number" name="ccn" type="text" />
+          <div className={styles.inputWrapper}>
+            <label className={styles.label} htmlFor="cc-number">
+              Card number:
+            </label>
+            <input
+              className={styles.input}
+              id="cc-number"
+              name="ccn"
+              type="text"
+            />
           </div>
-          <div>
-            <label htmlFor="exp">
+          <div className={styles.inputWrapper}>
+            <label className={styles.label} htmlFor="exp">
               Expires <span>(MM/YY)</span>:
             </label>
-            <input id="exp" name="exp" type="text" />
+            <input className={styles.input} id="exp" name="exp" type="text" />
           </div>
-          <button className={appStyles.button}>
-            Pay {formatCurrency(total)}
-          </button>
+          <Button>Pay {formatCurrency(total)}</Button>
         </form>
       )}
     </>

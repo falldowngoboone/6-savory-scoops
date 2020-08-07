@@ -3,8 +3,8 @@ import React from 'react';
 import Title from './Title.js';
 import { useOrderContext } from './order.js';
 
-import * as appStyles from './App.module.scss';
 import * as styles from './Flavors.module.scss';
+import Button from './Button.js';
 
 let id = 0;
 
@@ -53,9 +53,9 @@ function Flavor({
       <h2 className={styles.itemName}>{name}</h2>
       <p className={styles.itemDesc}>{description}</p>
       <p className={styles.itemPrice}>${price}</p>
-      <button className={appStyles.button} onClick={() => onAddToCart(id)}>
+      <Button onClick={() => onAddToCart(id)}>
         Add <span className="visually-hidden">{name}</span> to Order
-      </button>
+      </Button>
       <img
         className={styles.itemImage}
         height="320"

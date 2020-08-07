@@ -4,7 +4,7 @@ import { Link } from '@reach/router';
 import { formatCurrency, processPricing } from './utils.js';
 import { useOrderContext } from './order.js';
 
-import * as appStyles from './App.module.scss';
+import * as buttonStyles from './Button.module.scss';
 import * as styles from './Cart.module.scss';
 
 function Cart() {
@@ -30,12 +30,14 @@ function Cart() {
             <dt className={styles.priceType}>Total</dt>
             <dd className={styles.price}>{formatCurrency(total)}</dd>
           </dl>
-          <Link className={appStyles.button} to="/checkout">
+          <Link className={buttonStyles.button} to="/checkout">
             Checkout
           </Link>
           <h3 className={styles.subheading}>All the deliciousness</h3>
           {orderItems.length > 5 && (
-            <p>Oh, my, you must have a death wish...</p>
+            <p>
+              <em>Oh, my, you must have a death wish...</em>
+            </p>
           )}
           <ul>
             {orderItems.map((item) => (
