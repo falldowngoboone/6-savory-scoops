@@ -20,14 +20,14 @@
   z-index: 1;
 }
 
-.mainWrapper {
+.main {
   grid-area: main;
   overflow: auto;
   padding: 0 2rem;
   width: 100%;
 }
 
-.main {
+.mainInner {
   max-width: 1400px;
   margin: 4rem auto;
 
@@ -35,6 +35,8 @@
     margin-top: 1.5rem;
   }
 
+  // Safari doesn't support scroll-margin-top at the moment
+  // This prevents the main from scrolling and hiding the h1 behind the header
   &::before {
     display: block;
     content: ' ';

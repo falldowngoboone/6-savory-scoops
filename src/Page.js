@@ -5,11 +5,12 @@ import Flavors from './Flavors.js';
 import Home from './Home.js';
 import Checkout from './Checkout.js';
 import CartModal from './CartModal';
+import FadeTransitionRouter from './FadeTransitionRouter.js';
+import SiteFooter from './SiteFooter.js';
+import Success from './Success.js';
+import CheckoutIndex from './CheckoutIndex.js';
 
 import * as styles from './Page.module.scss';
-
-import SiteFooter from './SiteFooter.js';
-import FadeTransitionRouter from './FadeTransitionRouter.js';
 
 function Page() {
   return (
@@ -30,15 +31,18 @@ function Page() {
           <Link className={styles.siteNavLink} to="/flavors">
             Flavors
           </Link>
-          <Match path="/checkout">
+          <Match path="/checkout/*">
             {({ match }) => (match ? null : <CartModal />)}
           </Match>
         </nav>
       </header>
-      <main id="main" className={styles.mainWrapper}>
-        <FadeTransitionRouter className={styles.main}>
+      <main id="main" className={styles.main}>
+        <FadeTransitionRouter className={styles.mainInner}>
           <Home path="/" />
-          <Checkout path="checkout" />
+          <Checkout path="checkout">
+            <CheckoutIndex path="/" />
+            <Success path="success" />
+          </Checkout>
           <Flavors path="flavors" />
         </FadeTransitionRouter>
       </main>
