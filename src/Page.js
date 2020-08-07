@@ -35,11 +35,13 @@ function Page() {
           </Match>
         </nav>
       </header>
-      <FadeTransitionRouter component={Main}>
-        <Home path="/" />
-        <Checkout path="checkout" />
-        <Flavors path="flavors" />
-      </FadeTransitionRouter>
+      <main id="main" className={styles.mainWrapper}>
+        <FadeTransitionRouter className={styles.main}>
+          <Home path="/" />
+          <Checkout path="checkout" />
+          <Flavors path="flavors" />
+        </FadeTransitionRouter>
+      </main>
       {/* <footer className={styles.footer}>
         <p>© 2020 Ryan Boone.</p>
         <p>
@@ -53,15 +55,5 @@ function Page() {
     </div>
   );
 }
-
-const Main = React.forwardRef(({ children, ...props }, ref) => {
-  return (
-    <main id="main" className={styles.mainWrapper} ref={ref} {...props}>
-      <div role="presentation" className={styles.main}>
-        {children}
-      </div>
-    </main>
-  );
-});
 
 export default Page;
