@@ -1,9 +1,9 @@
 import React from 'react';
 import { DialogContent, DialogOverlay } from '@reach/dialog';
 
-import Button from './Button.js';
 import Cart from './Cart.js';
 import { ReactComponent as Close } from './close.svg';
+import { ReactComponent as CartIcon } from './cart.svg';
 import { useOrderContext } from './order.js';
 
 import '@reach/dialog/styles.css';
@@ -31,13 +31,16 @@ function CartModal() {
 
   return (
     <>
-      <Button
+      <button
+        className={styles.cartIcon}
         onClick={() => {
           setShowCart(true);
         }}
       >
-        {orderItems.length ? `Cart (${orderItems.length})` : 'Cart'}
-      </Button>
+        <CartIcon aria-hidden="true" focusable="false" />
+        <span className="visually-hidden">Cart</span>
+        {Boolean(orderItems.length) && `(${orderItems.length})`}
+      </button>
       <DialogOverlay
         isOpen={showCart}
         onDismiss={() => {
@@ -51,6 +54,7 @@ function CartModal() {
         >
           <button className={styles.close} onClick={() => setShowCart(false)}>
             <Close />
+            <span className="visually-hidden">Close</span>
           </button>
           <Cart />
         </DialogContent>

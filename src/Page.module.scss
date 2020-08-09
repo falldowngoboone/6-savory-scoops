@@ -58,13 +58,13 @@
 
 .siteNav {
   display: flex;
-  margin: -1em;
+  margin: -0.5em;
   align-items: center;
   font-family: vars.$font-display;
   font-size: 1.5rem;
 
   & > * {
-    margin: 1em;
+    margin: 0.5em;
   }
 }
 
