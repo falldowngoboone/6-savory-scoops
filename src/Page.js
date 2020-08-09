@@ -1,12 +1,11 @@
 import React from 'react';
-import { Link, Match } from '@reach/router';
+import { Link, Match, Router } from '@reach/router';
 
 import Flavors from './Flavors.js';
 import Home from './Home.js';
 import Checkout from './Checkout.js';
 import CartModal from './CartModal';
-import FadeTransitionRouter from './FadeTransitionRouter.js';
-import SiteFooter from './SiteFooter.js';
+// import SiteFooter from './SiteFooter.js';
 import Success from './Success.js';
 import CheckoutIndex from './CheckoutIndex.js';
 
@@ -37,25 +36,25 @@ function Page() {
         </nav>
       </header>
       <main id="main" className={styles.main}>
-        <FadeTransitionRouter className={styles.mainInner}>
+        <Router className={styles.mainInner}>
           <Home path="/" />
           <Checkout path="checkout">
             <CheckoutIndex path="/" />
             <Success path="success" />
           </Checkout>
           <Flavors path="flavors" />
-        </FadeTransitionRouter>
+        </Router>
       </main>
-      {/* <footer className={styles.footer}>
-        <p>© 2020 Ryan Boone.</p>
+      <footer className={styles.footer}>
         <p>
+          © 2020 Ryan Boone.{' '}
           <a href="https://www.falldowngoboone.com">Click here</a> to check out
           my personal website and{' '}
           <a href="https://twitter.com/therealboone">click here</a> to follow me
           on Twitter.
         </p>
-      </footer> */}
-      <SiteFooter className={styles.footer} />
+      </footer>
+      {/* <SiteFooter className={styles.footer} /> */}
     </div>
   );
 }

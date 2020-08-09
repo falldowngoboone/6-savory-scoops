@@ -50,12 +50,14 @@ function Flavor({
 }) {
   return (
     <li className={styles.item}>
-      <h2 className={styles.itemName}>{name}</h2>
-      <p className={styles.itemDesc}>{description}</p>
-      <p className={styles.itemPrice}>${price}</p>
-      <Button onClick={() => onAddToCart(id)}>
-        Add <span className="visually-hidden">{name}</span> to Order
-      </Button>
+      <div className={styles.itemInfo}>
+        <h2 className={styles.itemName}>{name}</h2>
+        <p className={styles.itemDesc}>{description}</p>
+        <p className={styles.itemPrice}>${price}</p>
+        <Button onClick={() => onAddToCart(id)}>
+          Add <span className="visually-hidden">{name}</span> to Order
+        </Button>
+      </div>
       <img
         className={styles.itemImage}
         height="320"

@@ -22,7 +22,7 @@ function Home() {
       <p>
         Meanwhile, we the investors needed a tax shelter, and it was either this
         or another National Treasure sequel. In hindsight we should've financed
-        the sequel. It had something to do with the Magna Carta being stolen by
+        the sequel. It had something to do w ith the Magna Carta being stolen by
         aliens and somehow Alexander Hamilton came back to life and knew Kung
         Fu. Very promising.
       </p>
