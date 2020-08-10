@@ -38,7 +38,9 @@ function CartModal() {
         }}
       >
         <CartIcon aria-hidden="true" focusable="false" />
-        <span className="visually-hidden">Cart</span>
+        <span role="presentation" className="visually-hidden">
+          Cart
+        </span>
         {Boolean(orderItems.length) && `(${orderItems.length})`}
       </button>
       <DialogOverlay

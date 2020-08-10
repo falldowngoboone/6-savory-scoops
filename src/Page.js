@@ -5,7 +5,7 @@ import Flavors from './Flavors.js';
 import Home from './Home.js';
 import Checkout from './Checkout.js';
 import CartModal from './CartModal';
-// import SiteFooter from './SiteFooter.js';
+import SiteFooter from './SiteFooter.js';
 import Success from './Success.js';
 import CheckoutIndex from './CheckoutIndex.js';
 
@@ -34,8 +34,9 @@ function Page() {
             {({ match }) => (match ? null : <CartModal />)}
           </Match>
         </nav>
+        <a className={styles.anchor} id="main" />
       </header>
-      <main id="main" className={styles.main}>
+      <main className={styles.main}>
         <Router className={styles.mainInner}>
           <Home path="/" />
           <Checkout path="checkout">
@@ -45,7 +46,7 @@ function Page() {
           <Flavors path="flavors" />
         </Router>
       </main>
-      <footer className={styles.footer}>
+      {/* <footer className={styles.footer}>
         <p>
           © 2020 Ryan Boone.{' '}
           <a href="https://www.falldowngoboone.com">Click here</a> to check out
@@ -53,8 +54,8 @@ function Page() {
           <a href="https://twitter.com/therealboone">click here</a> to follow me
           on Twitter.
         </p>
-      </footer>
-      {/* <SiteFooter className={styles.footer} /> */}
+      </footer> */}
+      <SiteFooter className={styles.footer} />
     </div>
   );
 }

@@ -20,6 +20,19 @@
   z-index: 1;
 }
 
+.anchor {
+  // Safari doesn't support scroll-margin-top at the moment
+  // This prevents the main from scrolling and hiding the h1 behind the header
+  &::before {
+    display: block;
+    content: ' ';
+    margin-top: -12em;
+    height: 12em;
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
+
 .main {
   grid-area: main;
   overflow: auto;
