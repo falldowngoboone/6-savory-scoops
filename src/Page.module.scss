@@ -39,6 +39,15 @@
   padding: 0 2rem;
   width: 100%;
   scroll-margin-top: 12rem;
+
+  &::before {
+    display: block;
+    content: ' ';
+    margin-top: -12em;
+    height: 12em;
+    visibility: hidden;
+    pointer-events: none;
+  }
 }
 
 .mainInner {

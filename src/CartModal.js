@@ -32,7 +32,7 @@ function CartModal() {
   return (
     <>
       <button
-        className={styles.cartIcon}
+        className={styles.cartButton}
         onClick={() => {
           setShowCart(true);
         }}

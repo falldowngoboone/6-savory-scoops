@@ -34,9 +34,8 @@ function Page() {
             {({ match }) => (match ? null : <CartModal />)}
           </Match>
         </nav>
-        <a className={styles.anchor} id="main" />
       </header>
-      <main className={styles.main}>
+      <main id="main" className={styles.main}>
         <Router className={styles.mainInner}>
           <Home path="/" />
           <Checkout path="checkout">

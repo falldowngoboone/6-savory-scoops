@@ -35,7 +35,9 @@ function CheckoutIndex() {
         }}
       >
         <p>All fields are required</p>
-        <output class={styles.error}>{message}</output>
+        <div role="alert" class={styles.error}>
+          {message}
+        </div>
         <div className={styles.inputWrapper}>
           <label className={styles.label} htmlFor="email">
             Email:
