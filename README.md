@@ -1,3 +1,7 @@
+# 6 Savory Scoops
+
+An example React app built for a presentation on accessibility in React.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
