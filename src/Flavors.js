@@ -5,6 +5,7 @@ import { useOrderContext } from './order.js';
 
 import * as styles from './Flavors.module.scss';
 import Button from './Button.js';
+import VisuallyHidden from './VisuallyHidden.js';
 
 let id = 0;
 
@@ -14,9 +15,9 @@ function Flavors() {
   return (
     <>
       <Title>Flavors</Title>
-      <div className="visually-hidden" role="status">
+      <VisuallyHidden as="div" role="status">
         {message}
-      </div>
+      </VisuallyHidden>
       <ul className={styles.list}>
         {getFlavors().map((flavor) => (
           <Flavor
@@ -55,7 +56,7 @@ function Flavor({
         <p className={styles.itemDesc}>{description}</p>
         <p className={styles.itemPrice}>${price}</p>
         <Button onClick={() => onAddToCart(id)}>
-          Add <span className="visually-hidden">{name}</span> to Order
+          Add <VisuallyHidden>{name}</VisuallyHidden> to Order
         </Button>
       </div>
       <img

@@ -2,7 +2,8 @@ import React from 'react';
 import { DialogContent, DialogOverlay } from '@reach/dialog';
 
 import Cart from './Cart.js';
-import { ReactComponent as Close } from './close.svg';
+import VisuallyHidden from './VisuallyHidden.js';
+import { ReactComponent as CloseIcon } from './close.svg';
 import { ReactComponent as CartIcon } from './cart.svg';
 import { useOrderContext } from './order.js';
 
@@ -38,9 +39,7 @@ function CartModal() {
         }}
       >
         <CartIcon aria-hidden="true" focusable="false" />
-        <span role="presentation" className="visually-hidden">
-          Cart
-        </span>
+        <VisuallyHidden>Cart</VisuallyHidden>
         {Boolean(orderItems.length) && `(${orderItems.length})`}
       </button>
       <DialogOverlay
@@ -55,8 +54,8 @@ function CartModal() {
           aria-labelledby="cart-heading"
         >
           <button className={styles.close} onClick={() => setShowCart(false)}>
-            <Close />
-            <span className="visually-hidden">Close</span>
+            <CloseIcon aria-hidden="true" focusable="false" />
+            <VisuallyHidden>Close</VisuallyHidden>
           </button>
           <Cart />
         </DialogContent>

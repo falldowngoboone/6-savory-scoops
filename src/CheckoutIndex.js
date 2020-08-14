@@ -2,6 +2,7 @@ import React from 'react';
 import { navigate } from '@reach/router';
 
 import Button from './Button.js';
+import Input from './Input.js';
 import Title from './Title.js';
 import { formatCurrency, processPricing } from './utils.js';
 import { useOrderContext } from './order.js';
@@ -38,41 +39,18 @@ function CheckoutIndex() {
         <div role="alert" class={styles.error}>
           {message}
         </div>
-        <div className={styles.inputWrapper}>
-          <label className={styles.label} htmlFor="email">
-            Email:
-          </label>
-          <input className={styles.input} id="email" name="e" />
-        </div>
-        <div className={styles.inputWrapper}>
-          <label className={styles.label} htmlFor="name">
-            Name on card:
-          </label>
-          <input
-            className={styles.input}
-            autoComplete="off"
-            id="name"
-            name="fn"
-            type="text"
-          />
-        </div>
-        <div className={styles.inputWrapper}>
-          <label className={styles.label} htmlFor="cc-number">
-            Card number:
-          </label>
-          <input
-            className={styles.input}
-            id="cc-number"
-            name="ccn"
-            type="text"
-          />
-        </div>
-        <div className={styles.inputWrapper}>
-          <label className={styles.label} htmlFor="exp">
-            Expires <span>(MM/YY)</span>:
-          </label>
-          <input className={styles.input} id="exp" name="exp" type="text" />
-        </div>
+        <Input label="Email:" id="email" name="email" />
+        <Input label="Name on card:" id="name" name="full-name" />
+        <Input label="Card number:" id="cc-number" name="ccn" />
+        <Input
+          label={
+            <>
+              Expires <span>(MM/YY)</span>:
+            </>
+          }
+          id="exp"
+          name="exp"
+        />
         <Button>Pay {formatCurrency(total)}</Button>
       </form>
     </div>

@@ -9,27 +9,19 @@ import * as styles from './Cart.module.scss';
 
 function Cart() {
   const { orderItems } = useOrderContext();
-  const { subtotal, tax, total } = processPricing(orderItems);
 
   return (
-    <div className={styles.cart}>
+    <div role="presentation" className={styles.cart}>
       <h2 className={styles.title} id="cart-heading">
         Your Order{' '}
-        <span className={styles.tally}>
+        <span role="presentation" className={styles.tally}>
           ({orderItems.length || 'no'}{' '}
           {orderItems.length !== 1 ? 'items' : 'item'})
         </span>
       </h2>
       {orderItems.length > 0 ? (
         <>
-          <dl className={styles.pricing}>
-            <dt className={styles.priceType}>Subtotal</dt>
-            <dd className={styles.price}>{formatCurrency(subtotal)}</dd>
-            <dt className={styles.priceType}>Tax</dt>
-            <dd className={styles.price}>{formatCurrency(tax)}</dd>
-            <dt className={styles.priceType}>Total</dt>
-            <dd className={styles.price}>{formatCurrency(total)}</dd>
-          </dl>
+          <PriceList orderItems={orderItems} />
           <Link className={buttonStyles.button} to="/checkout">
             Checkout
           </Link>
@@ -53,6 +45,27 @@ function Cart() {
         </p>
       )}
     </div>
+  );
+}
+
+function PriceItem({ type, children: amount }) {
+  return (
+    <>
+      <dt className={styles.priceType}>{type}</dt>
+      <dd className={styles.price}>{formatCurrency(amount)}</dd>
+    </>
+  );
+}
+
+function PriceList({ orderItems }) {
+  const { subtotal, tax, total } = processPricing(orderItems);
+
+  return (
+    <dl className={styles.pricing}>
+      <PriceItem type="Subtotal">{subtotal}</PriceItem>
+      <PriceItem type="Tax">{tax}</PriceItem>
+      <PriceItem type="Total">{total}</PriceItem>
+    </dl>
   );
 }
 
